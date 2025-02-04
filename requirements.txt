@@ -4,3 +4,4 @@ numpy
 plotly
 gunicorn
 scikit-learn
+psycopg2
