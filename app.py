@@ -2,14 +2,18 @@ import dash
 from dash import dcc, html
 from dash.dependencies import Input, Output, State
 import plotly.express as px
-import sqlite3
 import pandas as pd
 import numpy as np
 import plotly.graph_objects as go
 from datetime import datetime
+from sqlalchemy import create_engine
+import pandas as pd
 
-# Connect to SQLite Database
-conn = sqlite3.connect('DB/text.db')
+DATABASE_URL = "postgresql://user:password@host:port/dbname"  # Paste Render DB URL
+
+engine = create_engine(DATABASE_URL)
+conn = engine.connect()
+
 df = pd.read_sql('SELECT * FROM main_data', conn)
 df_rpm = pd.read_sql('SELECT * FROM rpm', conn)
 metric = 'std_Dev'
