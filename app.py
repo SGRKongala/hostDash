@@ -11,9 +11,15 @@ from datetime import datetime, timedelta
 from sklearn.preprocessing import RobustScaler, StandardScaler, MinMaxScaler, Normalizer
 from sqlalchemy import create_engine, text
 import os
+from sqlalchemy import create_engine
 
-pg_engine = create_engine(os.getenv("DATABASE_URL"))
+# Fetch the database URL, and ensure it is valid
+DATABASE_URL = os.getenv("DATABASE_URL")
 
+if not DATABASE_URL:
+    raise ValueError("DATABASE_URL is not set. Check Render environment variables.")
+
+pg_engine = create_engine(DATABASE_URL)
 
 # Data Loading and Preprocessing
 def load_data():
