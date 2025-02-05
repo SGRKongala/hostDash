@@ -13,13 +13,14 @@ from sqlalchemy import create_engine, text
 import os
 from sqlalchemy import create_engine
 
-# Fetch the database URL, and ensure it is valid
-DATABASE_URL = os.getenv("DATABASE_URL")
+import os
+from sqlalchemy import create_engine
 
-if not DATABASE_URL:
-    raise ValueError("DATABASE_URL is not set. Check Render environment variables.")
+# Use the Internal Database URL in Render
+DATABASE_URL = "postgresql://wind_turbine_db_user:nwMYZOfBNYiChW0EuGbyNuJWaPcj4gcD@dpg-cuhckc5umphs73fi49b0-a/wind_turbine_db"
 
 pg_engine = create_engine(DATABASE_URL)
+
 
 # Data Loading and Preprocessing
 def load_data():
