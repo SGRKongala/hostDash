@@ -17,7 +17,7 @@ import os
 from sqlalchemy import create_engine
 
 # Use the Internal Database URL in Render
-DATABASE_URL = "postgresql://wind_turbine_db_user:nwMYZOfBNYiChW0EuGbyNuJWaPcj4gcD@dpg-cuhckc5umphs73fi49b0-a/wind_turbine_db"
+DATABASE_URL = os.getenv("DATABASE_URL", "postgresql://wind_turbine_db_user:nwMYZOfBNYiChW0EuGbyNuJWaPcj4gcD@dpg-cuhckc5umphs73fi49b0-a/wind_turbine_db")
 
 pg_engine = create_engine(DATABASE_URL)
 
