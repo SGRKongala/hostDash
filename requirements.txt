@@ -1,7 +1,8 @@
 dash
+plotly
 pandas
 numpy
-plotly
-gunicorn
 scikit-learn
+sqlalchemy
 psycopg2
+gunicorn
